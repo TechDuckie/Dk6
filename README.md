@@ -1,6 +1,6 @@
 # DK6
 
-DK6 Is a DOS script meant for use on personal computers wriiten in 100% Python
+DK6 Is a DOS/DDOS script meant for use on personal computers wriiten in 100% Python
 
 # Installation
 
