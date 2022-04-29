@@ -1,6 +1,5 @@
 import threading
 import socket
-import time
 from art import *
 
 
